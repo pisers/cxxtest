@@ -1,0 +1,81 @@
+Hello  All,
+
+Hope you are doing well.
+
+I started working with C++ and Unit testing recently. One of the best Open-sourced Unit testing frameworks that I was able to find was CxxTest. I initially worked with Ubuntu where the installation of CxxTest was pretty straightforward (https://www.howtoinstall.me/ubuntu/18-04/cxxtest/) and extremely easy to use (Just blindly following the user guide worked).
+
+But when I transitioned to windows, I had a really difficult time understanding (Might just be me!!) how Windows work and using CxxTest for my projects. I searched on the Internet where the query was either unanswered or the answers were outdated or I couldn't really understand how things worked.                                                                     
+    
+Thus, I came up with the idea of creating a basic tutorial on how to use CxxTest on Windows.PFB the steps on using CxxTest (Any version on Windows).
+
+Method Tested in/for:
+
+    1. Windows Versions: 8.1/10 (Should work exactly the same in Windows 7 also).
+    2. CxxTest Version: 3.10 (The older version where perl executable file was available) and 4.4 (The latest available version).
+
+Steps to use CxxTest4.4 on Windows:
+Prerequisite:
+
+    1. Python should be installed in the machine. (https://www.youtube.com/watch?v=i-MuSAwgwCU)
+    2. gcc/g++ needs to be installed in the machine. (https://www.youtube.com/watch?v=sXW2VLrQ3Bs)
+    3. Strawberry Perl can be installed (Optional). (https://www.youtube.com/watch?v=-3gkadQDX0Q)
+    4. Go through the Windows commands and learn basic commands. (https://www.ionos.com/digitalguide/server/know-how/windows-cmd-commands/)(https://download.microsoft.com/download/5/8/9/58911986-D4AD-4695-BF63-F734CD4DF8F2/ws-commands.pdf) 
+
+Steps to create and play with Test Cases:
+
+    1. Download the CxxTest source completely from their GitHub/SourceForge repo: http://cxxtest.com/
+    2. Extract the downloaded file. The cxxtest-master folder structure will be as follows:
+    cxxtest-master ------------------- admin
+                   |-------------- bin
+                   |-------------- build_tools
+                   |-------------- cxxtest
+                   |-------------- doc
+                   |-------------- python
+                   |-------------- sample
+                   |-------------- test
+                   |-------------- .gitignore
+                   |-------------- COPING
+                   |-------------- README
+                   |-------------- Versions
+    3. Important Steps:
+        a. Open your command prompt and type "where g++". This command will display a folder path. For example, "D:\folder1\folder2\.....\MinGW\bin\g++.exe".
+        b. Copy the "cxxtest" folder (contains all the header files) which is present in the cxxtest-master and paste it into the include folder inside the MinGW folder. For example, "D:\folder1\folder2\.....\MinGW\include\". (Now the compiler will be able to find all the necessary headers). 
+    4. Add Your src folder inside the cxxtest-master.
+    cxxtest-master ------------------- admin
+                   |-------------- bin
+                   |-------------- build_tools
+                   |-------------- cxxtest
+                   |-------------- doc
+                   |-------------- python
+                   |-------------- sample
+                   |-------------- test
+                   |-------------- .gitignore
+                   |-------------- COPING
+                   |-------------- README
+                   |-------------- Versions
+                   |-------------- src (Our src folder containing the application with test suite needs to be placed here)
+    5. The src folder structure will contain the following files:
+    src ------------------- sample.h (Our application's header)
+        |-------------- sample.cpp (Our application's definition)
+        |-------------- test.h (Our Test suite).
+    6. Go through the User Guide to learn how to write the test suite. (http://cxxtest.com/).
+    7. Now open the command prompt and navigate inside the cxxtest-master. Further, Navigate into the bin folder.
+    8. Use the command "python cxxtestgen --help" to view all the available options.
+    9. Use the command "cxxtestgen --error-printer ../src/test.h -o ../src/test.cpp" to create the test.cpp file from the test.h file.
+    10. Use the command "g++ -o ../src/runner.exe ../src/test.cpp../src/sample.cpp" to create the final/runner executable.
+    11. Now load/run the executable (runner.exe) to view the output of the test cases. 
+
+Note:
+
+    1. You can use the old setup also in which cxxtestgen.pl (perl) file is present.
+
+Additional Note:
+
+    2. The video link(s) provided might be bad for some, Kindly bear with me. Feel free to use any videos for the installation of the prerequisites as they are just generic content only.
+
+Hope this long tutorial actually helps anyone who is in search of an answer on how to use CxxTest on Windows.
+
+Feel free to revert in case of any queries!!!
+
+Thanks and Regards,
+P. Sankalprajan
